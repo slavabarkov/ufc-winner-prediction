@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>UFC Prediction - MISIS Meldonium</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Расчитаем прибыль наших ставок на UFC</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="amount" placeholder="Ставка" required="required" />
+        <input type="radio" id="css" name="fav_language" value="YES">
+		Использовать модель
+		<input type="radio" id="css" name="fav_language" value="NO">
+		Не использовать модель, а просто ставить на фаворита
+        <button type="submit" class="btn btn-primary btn-block btn-large">Считаем</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
